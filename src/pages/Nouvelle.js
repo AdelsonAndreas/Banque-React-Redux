@@ -1,7 +1,22 @@
 import React from 'react';
-import Header from '../components/Headers'
+import Header from '../components/Headers';
+import {connect} from 'react-redux';
+import { createTransaction, setMontant } from '../ReduxComponent/Actions/transactionActions';
 
+@connect((store) =>{
+    return {
+        store
+    }
+})
 export default class Nouvelle extends React.Component {
+    addTransaction(montant, date){
+        var montant = document.getElementById("Montant").value;
+        var date = document.getElementById("Date").value;
+
+        console.log("Date: " + date + "Montant: " + montant);
+        this.props.dispatch(createTransaction(date, montant));
+    }
+        
     render(){
         return(
             <div>
@@ -15,13 +30,13 @@ export default class Nouvelle extends React.Component {
                     <form action="">
                     <div class="form-group">
                         <label for="Montant">Montant :</label>
-                        <input type="number" class="form-control" id="Montant"/>
-                        <label for="Montant">Date :</label>
+                        <input type="number"  class="form-control" id="Montant"/>
+                        <label for="Date">Date :</label>
                         <input type="date" class="form-control" id="Date" min="2018-03-01"/>
                     </div>
                     </form>
                         <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 offset-4 align-self-end">
-                            <button class="btn btn-succes">Effectuer</button>
+                            <button class="btn btn-succes" onClick={this.addTransaction.bind(this)}>Effectuer</button>
                         </div>
                     </div>                    
                 </div>

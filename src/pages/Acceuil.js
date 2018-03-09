@@ -1,7 +1,6 @@
 import React from 'react';
 import Header from '../components/Headers'
 
-
 export default class Acceuil extends React.Component {
     render(){
         return(

@@ -1,4 +1,5 @@
 import React from 'react';
+import {NavLink} from 'react-router-dom'
 
 export default class Header extends React.Component {
     render(){
@@ -6,13 +7,13 @@ export default class Header extends React.Component {
             <div class="container-fluid">
                     <ul class="nav justify-content-center bg-inverse">
                         <li class="nav-item">
-                            <a class="nav-link active" href="/">Acceuil</a>
+                            <NavLink  class="nav-link" to="/">Acceuil</NavLink>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/transaction">Transactions</a>
+                            <NavLink class="nav-link" to="/transaction">Transaction</NavLink>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/nouvelle">Nouvelle Transaction</a>
+                            <NavLink class="nav-link" to="/nouvelle">Nouvelle</NavLink>
                         </li>
                     </ul>
             </div>
