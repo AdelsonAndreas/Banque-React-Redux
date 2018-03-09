@@ -19,11 +19,12 @@ var config = {
         rules: [
             {
                 test: /\.jsx?$/,
-                exclude: excludedFolder,
+                exclude: /(node_modules|bower_components)/,
                 include: APP_DIR,
                 loader: 'babel-loader',
-                options: {
+                query: {
                             presets: ['env','react','es2015','stage-2'],
+                            plugins: ['react-html-attrs','transform-class-properties','transform-decorators-legacy'],
                     }
             }
         ]
