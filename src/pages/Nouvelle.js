@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from '../components/Headers';
 import {connect} from 'react-redux';
-import { createTransaction, setMontant } from '../ReduxComponent/Actions/transactionActions';
+import { createTransaction } from '../ReduxComponent/actions';
 
 @connect((store) =>{
     return {

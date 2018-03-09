@@ -1,11 +1,11 @@
-var weboack = require('webpack');
-var path =require('path');
+require('webpack');
+var path = require('path');
 
-var BUILD_DIR = path.resolve(__dirname,'dist');
-var APP_DIR = path.resolve(__dirname,'src');
+var BUILD_DIR = path.resolve(__dirname, 'dist');
+var APP_DIR = path.resolve(__dirname, 'src');
 
 const excludedFolder = [
-    path.join(__dirname,',node_modules')
+    path.join(__dirname, ',node_modules')
 ];
 
 var config = {
@@ -15,6 +15,9 @@ var config = {
         filename: 'bundle.js',
         publicPath: '/app'
     },
+    resolve: {
+        extensions: ['.tsx', '.ts', '.js']
+    },
     module: {
         rules: [
             {
@@ -23,9 +26,13 @@ var config = {
                 include: APP_DIR,
                 loader: 'babel-loader',
                 query: {
-                            presets: ['env','react','es2015','stage-2'],
-                            plugins: ['react-html-attrs','transform-class-properties','transform-decorators-legacy'],
-                    }
+                    presets: ['env', 'react', 'es2015', 'stage-2'],
+                    plugins: ['react-html-attrs', 'transform-class-properties', 'transform-decorators-legacy'],
+                }
+            }, {
+                test: /\.tsx?$/,
+                use: 'ts-loader',
+                exclude: /node_modules/
             }
         ]
     }
