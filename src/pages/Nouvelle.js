@@ -13,7 +13,6 @@ export default class Nouvelle extends React.Component {
         var montant = document.getElementById("Montant").value;
         var date = document.getElementById("Date").value;
 
-        console.log("Date: " + date + "Montant: " + montant);
         this.props.dispatch(createTransaction(date, montant));
     }
         
