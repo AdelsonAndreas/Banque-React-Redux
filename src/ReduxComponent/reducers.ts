@@ -11,7 +11,7 @@ function banqueReducer(state: State, action: Action): State {
     if (state == null) {
         return {
             banque: {
-                argent: 0,
+                argent: 100,
                 transactions: [],
             },
             error: null,
@@ -23,7 +23,7 @@ function banqueReducer(state: State, action: Action): State {
             let addAction = action as AddTransactionAction;
 
             let nouvellesTransactions = state.banque.transactions.slice(0); // Copie
-            nouvellesTransactions.push(addAction.payload.id);
+            nouvellesTransactions.push(addAction.payload);
             return {
                 banque: {
                     argent: state.banque.argent,
