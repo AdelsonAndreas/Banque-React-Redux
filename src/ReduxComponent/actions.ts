@@ -10,6 +10,7 @@ export interface AddTransactionAction extends Action {
         date: Date;
         montant: number;
         id: string;
+        validated: boolean;
     }
 }
 
@@ -25,7 +26,8 @@ export function createTransaction(newDate, newMontant){
         payload: {
             date: newDate,
             montant: newMontant,
-            id: uniqid()
+            id: uniqid(),
+            validated: false,
         }
     }
 }
